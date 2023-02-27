@@ -15,7 +15,7 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
 # Allows user to puck their fruit
-streamlit.multiselect("pick some fruits:", list(my_fruit_list.index))
+streamlit.multiselect("pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 
 # Displays the table of fruit
 streamlit.dataframe(my_fruit_list)
