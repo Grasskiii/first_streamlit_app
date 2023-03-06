@@ -44,6 +44,7 @@ try:
       streamlit.error("Please select a fruit to get information.")
   else:
       back_from_function = get_fruityvice_data(fruit_choice)
+      my_cnx.close()
       streamlit.dataframe(back_from_function)
       
 except URLError as e:
@@ -65,6 +66,7 @@ def get_fruit_load_list():
 if streamlit.button('Get Fruit Load List'):
   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   my_data_rows = get_fruit_load_list()
+  my_cnx.close()
   streamlit.dataframe(my_data_rows)
   
   
